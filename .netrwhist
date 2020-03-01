@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='C:\Users\atil\Documents\hell/src'
+let g:netrw_dirhist_2='C:\Users\atil\Documents\hell'
+let g:netrw_dirhist_1='C:\Users\atil\vimfiles'
+let g:netrw_dirhist_0='C:\Users\atil\Documents\hell'
+let g:netrw_dirhist_9='C:\Users\atil\vimfiles'
+let g:netrw_dirhist_8='C:\Users\atil\Documents\hell'
+let g:netrw_dirhist_7='C:\Users\atil\vimfiles'
+let g:netrw_dirhist_6='C:\Users\atil\Documents\hell'
+let g:netrw_dirhist_5='C:\Users\atil\vimfiles'
+let g:netrw_dirhist_4='C:\Users\atil\Documents\hell/src'
