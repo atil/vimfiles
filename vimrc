@@ -11,15 +11,17 @@ set hlsearch
 set ignorecase
 set smartcase
 set wrap!
+set wrap linebreak nolist
 set backspace=indent,eol,start
+imap <C-BS> <C-W>
 set wildmenu
 set wildmode=longest:full,full
 set splitbelow
 set splitright
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-let g:netrw_winsize=10
-nnoremap <leader>n :Lexplore<CR>
+set autowriteall
+set hidden
+nmap <silent> ,ev :e $MYVIMRC<cr>
+nmap <silent> ,sv :so $MYVIMRC<cr>
 colorscheme darktooth
 
 set guioptions -=m
@@ -30,12 +32,16 @@ set guifont =Consolas:h12
 set guicursor +=a:blinkon0
 cd ~\Documents\hell
 
+" Plugings
+" Rust
 let g:rustfmt_autosave = 1
 
+" Easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-nmap t <Plug>(easymotion-overwin-w)
+nmap <C-P> <Plug>(easymotion-overwin-w)
 
+" CtrlP
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|target\|node_modules\|log\|tmp$',
