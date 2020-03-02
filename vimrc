@@ -1,11 +1,4 @@
-call plug#begin('~/vimfiles/plugged')
-Plug 'mswift42/vim-themes'
-Plug 'rust-lang/rust.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-commentary'
-Plug 'kien/ctrlp.vim'
-call plug#end()
-
+" Regular
 set incsearch
 set hlsearch
 set ignorecase
@@ -22,17 +15,27 @@ set autowriteall
 set hidden
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
+command W w
 colorscheme darktooth
 
+" Gvim
 set guioptions -=m
 set guioptions -=T
 set guioptions -=r
 set guioptions -=L
-set guifont =Consolas:h12
+set guifont =Consolas:h18
 set guicursor +=a:blinkon0
 cd ~\Documents\hell
 
 " Plugings
+call plug#begin('~/vimfiles/plugged')
+Plug 'mswift42/vim-themes'
+Plug 'rust-lang/rust.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-commentary'
+Plug 'kien/ctrlp.vim'
+call plug#end()
+
 " Rust
 let g:rustfmt_autosave = 1
 
