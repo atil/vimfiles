@@ -1,4 +1,4 @@
-" Regular
+" Edit
 set incsearch
 set hlsearch
 set ignorecase
@@ -7,6 +7,8 @@ set wrap!
 set wrap linebreak nolist
 set backspace=indent,eol,start
 imap <C-BS> <C-W>
+
+" Buffers
 set wildmenu
 set wildmode=longest:full,full
 set splitbelow
@@ -15,8 +17,11 @@ set autowriteall
 set hidden
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
+nmap <silent> <C-W> :bd<CR>
+nmap <silent> <C-S-W> :%bd<bar>e#<bar>bd#<CR>
+nmap <silent> <C-Tab> :bn<CR>
 command W w
-colorscheme darktooth
+command Wa wa
 
 " Gvim
 set guioptions -=m
@@ -25,6 +30,8 @@ set guioptions -=r
 set guioptions -=L
 set guifont =Consolas:h18
 set guicursor +=a:blinkon0
+
+" Project specific 
 cd ~\Documents\hell
 
 " Plugings
@@ -35,6 +42,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
 call plug#end()
+colorscheme darktooth
 
 " Rust
 let g:rustfmt_autosave = 1
@@ -47,7 +55,7 @@ nmap <C-P> <Plug>(easymotion-overwin-w)
 " CtrlP
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|target\|node_modules\|log\|tmp$',
+\ 'dir':  '\.git$\|target\|log\|tmp$',
 \ 'file': '\.so$\|\.dat$|\.DS_Store$'
 \ }
  
