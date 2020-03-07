@@ -7,6 +7,10 @@ set wrap!
 set wrap linebreak nolist
 set backspace=indent,eol,start
 imap <C-BS> <C-W>
+noremap <silent> k gk
+noremap <silent> j gj
+noremap <silent> ^ g^
+noremap <silent> $ g$
 
 " Buffers
 set wildmenu
@@ -17,8 +21,9 @@ set autowriteall
 set hidden
 nmap <silent> ,ev :e $MYVIMRC<cr>
 nmap <silent> ,sv :so $MYVIMRC<cr>
-nmap <silent> <C-W> :bd<CR>
-nmap <silent> <C-S-W> :%bd<bar>e#<bar>bd#<CR>
+execute "set <M-n>=\en"
+nnoremap <M-w> :bd<CR>
+nmap <silent> <C-S-W> :w<bar>%bd<bar>e#<bar>bd#<CR>
 nmap <silent> <C-Tab> :bn<CR>
 command W w
 command Wa wa
@@ -28,7 +33,7 @@ set guioptions -=m
 set guioptions -=T
 set guioptions -=r
 set guioptions -=L
-set guifont =Consolas:h18
+set guifont =Consolas:h16
 set guicursor +=a:blinkon0
 
 " Project specific 
