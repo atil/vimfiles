@@ -1,6 +1,7 @@
 " Edit
 set incsearch
 set hlsearch
+nnoremap <silent> <esc> :noh<return><esc>
 set ignorecase
 set smartcase
 set wrap!
@@ -11,6 +12,8 @@ noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> ^ g^
 noremap <silent> $ g$
+noremap <silent> <M-c> "*y<CR>
+noremap <silent> <M-v> "*p<CR>
 
 " Buffers
 set wildmenu
@@ -20,9 +23,8 @@ set splitright
 set autowriteall
 set hidden
 nmap <silent> ,ev :e $MYVIMRC<cr>
-nmap <silent> ,sv :so $MYVIMRC<cr>
-execute "set <M-n>=\en"
-nnoremap <M-w> :bd<CR>
+nmap <silent> ,sv :w<bar>so $MYVIMRC<cr>
+nnoremap <silent> <M-w> :bd<CR>
 nmap <silent> <C-S-W> :w<bar>%bd<bar>e#<bar>bd#<CR>
 nmap <silent> <C-Tab> :bn<CR>
 command W w
@@ -39,9 +41,10 @@ set guicursor +=a:blinkon0
 " Project specific 
 cd ~\Documents\hell
 
-" Plugings
+" Plugins
 call plug#begin('~/vimfiles/plugged')
 Plug 'mswift42/vim-themes'
+Plug 'altercation/vim-colors-solarized'
 Plug 'rust-lang/rust.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
