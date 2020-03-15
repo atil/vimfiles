@@ -64,7 +64,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
 call plug#end()
-colorscheme darktooth
+colorscheme hell
 
 " Rust
 let g:rustfmt_autosave = 1
