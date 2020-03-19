@@ -1,6 +1,9 @@
 """"""""""""
 " Editing "
 """""""""""
+set ts=2
+set expandtab
+set smartindent
 set incsearch
 set hlsearch
 nnoremap <silent> <esc> :noh<return><esc>
@@ -51,7 +54,7 @@ set guicursor +=a:blinkon0 " Solid cursor at all time
 """"""""""""""""""""
 " Project specific "
 """"""""""""""""""""
-cd ~\Documents\hell
+cd ~\Documents\daily
 
 """""""""""
 " Plugins "
