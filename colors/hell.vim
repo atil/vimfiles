@@ -1,6 +1,7 @@
 " Vim color file
 " hell
-" Created by  with ThemeCreator (https://github.com/mswift42/themecreator)
+" Created by with ThemeCreator (https://github.com/mswift42/themecreator)
+" Then modified by pingFromHeaven
 
 hi clear
 
@@ -46,7 +47,12 @@ exe 'hi PmenuSel guibg='s:bg3
 exe 'hi Search guifg='s:fg' guibg='s:bg2' gui=underline'
 exe 'hi IncSearch guifg='s:fg' guibg='s:keyword 
 exe 'hi Directory guifg='s:const  
-exe 'hi Folded guifg='s:fg4' guibg='s:bg 
+exe 'hi Folded guifg='s:fg4' guibg='s:bg
+
+" Requires BufTabLine
+exe 'hi BufTabLineCurrent guifg='s:fg4' guibg='s:bg
+exe 'hi BufTabLineHidden guifg='s:bg4' guibg='s:bg
+exe 'hi BufTabLineFill guifg='s:fg' guibg='s:bg
 
 exe 'hi Comment guifg='s:comment  
 exe 'hi NonText guifg='s:bg4' guibg='s:bg2 
