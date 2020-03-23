@@ -1,7 +1,7 @@
 """"""""""""
 " Editing "
 """""""""""
-set ts=2
+set ts=4
 set expandtab
 set smartindent
 set incsearch
@@ -13,19 +13,25 @@ set wrap!
 set wrap linebreak nolist
 set backspace=indent,eol,start
 imap <C-BS> <C-W>
+set clipboard+=unnamed
 noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> ^ g^
 noremap <silent> $ g$
-noremap <silent> <M-c> "*y<CR>
-noremap <silent> <M-v> "*p<CR>
 noremap <silent> <M-h> 4h
 noremap <silent> <M-j> 4j
 noremap <silent> <M-k> 4k
 noremap <silent> <M-l> 4l
-noremap <C-s> :wa<CR>
+noremap <silent> <C-s> :wa<CR>
+imap <silent> <C-s> <esc>:wa<CR>
 let mapleader="\<Space>"
 imap <M-Space> <Esc>
+set nobackup
+set noswapfile
+set scrolloff=3
+noremap ; :
+noremap : ;
+nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 """""""""""
 " Buffers "
