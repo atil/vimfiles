@@ -19,7 +19,12 @@ noremap <silent> ^ g^
 noremap <silent> $ g$
 noremap <silent> <M-c> "*y<CR>
 noremap <silent> <M-v> "*p<CR>
-nmap <Space> i
+noremap <silent> <M-h> 4h
+noremap <silent> <M-j> 4j
+noremap <silent> <M-k> 4k
+noremap <silent> <M-l> 4l
+noremap <C-s> :wa<CR>
+let mapleader="\<Space>"
 imap <M-Space> <Esc>
 
 """""""""""
@@ -32,11 +37,12 @@ set splitright " Better vsplit position
 set autowriteall " Save when switching the buffers
 au FocusLost * silent! wa " Save on focus change
 set hidden " Be able to switch away from unsaved buffers
-nmap <silent> ,ev :e $MYVIMRC<cr>
-nmap <silent> ,sv :w<bar>so $MYVIMRC<cr>
+nmap <silent> <leader>ev :e $MYVIMRC<cr>
+nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
 nnoremap <silent> <M-w> :bd<CR>
 nmap <silent> <C-S-W> :w<bar>%bd<bar>e#<bar>bd#<CR>
 nmap <silent> <C-Tab> :bn<CR>
+imap <silent> <C-Tab> <esc>:bn<CR>
 command W w " Prevent typos
 command Wa wa " Prevent typos
 
@@ -54,7 +60,7 @@ set guicursor +=a:blinkon0 " Solid cursor at all time
 """"""""""""""""""""
 " Project specific "
 """"""""""""""""""""
-cd ~\Documents\daily
+cd ~\Documents\hell
 
 """""""""""
 " Plugins "
@@ -66,6 +72,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
+Plug 'ap/vim-buftabline'
 call plug#end()
 colorscheme hell
 
