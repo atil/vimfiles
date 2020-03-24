@@ -77,6 +77,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
 Plug 'ap/vim-buftabline'
+Plug 'GrzegorzKozub/vimdows'
 call plug#end()
 colorscheme hell
 
@@ -94,5 +95,3 @@ let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|target\|log\|tmp$',
 \ 'file': '\.so$\|\.dat$|\.DS_Store$'
 \ }
- 
- 
