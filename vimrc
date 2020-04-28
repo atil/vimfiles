@@ -18,18 +18,18 @@ noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> ^ g^
 noremap <silent> $ g$
-noremap <silent> <M-h> 4h
-noremap <silent> <M-j> 4j
-noremap <silent> <M-k> 4k
-noremap <silent> <M-l> 4l
 noremap <silent> <C-s> :wa<CR>
 imap <silent> <C-s> <esc>:wa<CR>
+noremap <silent> <M-c> "*y
+noremap <silent> <M-v> "*p
 let mapleader="\<Space>"
 imap <M-Space> <Esc>
 set nobackup
 set noswapfile
 set scrolloff=3
 nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+xnoremap p pgvy
+set belloff=all
 
 """""""""""
 " Buffers "
@@ -43,9 +43,10 @@ au FocusLost * silent! wa " Save on focus change
 set hidden " Be able to switch away from unsaved buffers
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
-nnoremap <silent> <M-w> :bd<CR>
+nnoremap <silent> <M-q> :bd<CR>
 nmap <silent> <C-S-W> :w<bar>%bd<bar>e#<bar>bd#<CR>
-nmap <silent> <C-Tab> :bn<CR>
+nmap <silent> <M-l> :bn<CR> 
+nmap <silent> <M-h> :bp<CR> 
 imap <silent> <C-Tab> <esc>:bn<CR>
 command W w " Prevent typos
 command Wa wa " Prevent typos
@@ -53,6 +54,7 @@ command Wa wa " Prevent typos
 """"""""
 " Gvim "
 """"""""
+if has("gui_running")
 au GUIEnter * simalt ~x " Start fullscreen
 set guioptions -=m
 set guioptions -=T
@@ -60,11 +62,13 @@ set guioptions -=r
 set guioptions -=L
 set guifont =Consolas:h16
 set guicursor +=a:blinkon0 " Solid cursor at all time
+endif
 
 """"""""""""""""""""
 " Project specific "
 """"""""""""""""""""
 cd ~\Documents\hell
+command Cddaily cd ~\work\daily
 
 """""""""""
 " Plugins "
@@ -78,6 +82,10 @@ Plug 'tpope/vim-commentary'
 Plug 'kien/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'GrzegorzKozub/vimdows'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 call plug#end()
 colorscheme hell
 
@@ -95,3 +103,6 @@ let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|target\|log\|tmp$',
 \ 'file': '\.so$\|\.dat$|\.DS_Store$'
 \ }
+
+" vimdows
+let g:vimdows_screen_memento = 0
