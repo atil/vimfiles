@@ -44,9 +44,13 @@ set hidden " Be able to switch away from unsaved buffers
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
 nnoremap <silent> <M-q> :bd<CR>
-nmap <silent> <C-S-W> :w<bar>%bd<bar>e#<bar>bd#<CR>
+nmap <silent> <M-S-q> :w<bar>%bd<bar>e#<bar>bd#<CR>
 nmap <silent> <M-l> :bn<CR> 
 nmap <silent> <M-h> :bp<CR> 
+vmap <silent> <M-l> <esc>:bn<CR> 
+vmap <silent> <M-h> <esc>:bp<CR> 
+imap <silent> <M-l> <esc>:bn<CR> 
+imap <silent> <M-h> <esc>:bp<CR> 
 imap <silent> <C-Tab> <esc>:bn<CR>
 command W w " Prevent typos
 command Wa wa " Prevent typos
