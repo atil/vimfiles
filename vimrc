@@ -6,6 +6,7 @@ set expandtab
 set smartindent
 set incsearch
 set hlsearch
+syntax on
 nnoremap <silent> <esc> :noh<return><esc>
 set ignorecase
 set smartcase
@@ -18,7 +19,9 @@ noremap <silent> k gk
 noremap <silent> j gj
 noremap <silent> ^ g^
 noremap <silent> $ g$
-noremap <silent> <C-s> :wa<CR>
+noremap <silent> <M-j> <C-e>j
+noremap <silent> <M-k> <C-y>k
+noremap <silent> <M-s> :wa<CR>
 imap <silent> <C-s> <esc>:wa<CR>
 noremap <silent> <M-c> "*y
 noremap <silent> <M-v> "*p
@@ -27,9 +30,11 @@ imap <M-Space> <Esc>
 set nobackup
 set noswapfile
 set scrolloff=3
-nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 xnoremap p pgvy
 set belloff=all
+
+" what
+nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 """""""""""
 " Buffers "
@@ -43,7 +48,7 @@ au FocusLost * silent! wa " Save on focus change
 set hidden " Be able to switch away from unsaved buffers
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
-nnoremap <silent> <M-q> :bd<CR>
+nnoremap <silent> <M-q> :bd!<CR>
 nmap <silent> <M-S-q> :w<bar>%bd<bar>e#<bar>bd#<CR>
 nmap <silent> <M-l> :bn<CR> 
 nmap <silent> <M-h> :bp<CR> 
@@ -92,7 +97,6 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 call plug#end()
 colorscheme hell
-
 " Rust
 let g:rustfmt_autosave = 1
 
@@ -110,3 +114,4 @@ let g:ctrlp_custom_ignore = {
 
 " vimdows
 let g:vimdows_screen_memento = 0
+
