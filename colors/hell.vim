@@ -73,6 +73,7 @@ if extension == "rs"
 
 	" Types
 	exec "highlight rustEnum guifg=" . s:type
+	exec "highlight rustEnumVariant guifg=" . s:type
 	exec "highlight rustStorage guifg=" . s:keyword
 	exec "highlight rustStructure guifg=" . s:keyword
 	exec "highlight rustSelf guifg=" . s:keyword
@@ -94,9 +95,10 @@ if extension == "rs"
 	exec "highlight rustOperator guifg=" . s:keyword
 	exec "highlight rustUnsafeKeyword guifg=" . s:keyword
 	exec "highlight rustModPathSep guifg=" . s:keyword
+	exec "highlight rustLabel guifg=" . s:const
 
 	" Above the file
-	exec "highlight rustDerive guifg=" . s:func
+	exec "highlight rustDerive guifg=" . s:const
 	exec "highlight rustMacroVariable guifg=" . s:fg
 	exec "highlight rustModPath guifg=" . s:type
 	exec "highlight rustAssert guifg=" . s:fg
