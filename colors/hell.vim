@@ -58,86 +58,82 @@ exe 'hi Comment guifg='s:comment
 exe 'hi NonText guifg='s:bg4' guibg='s:bg2 
 exe 'hi String guifg='s:str  
 
-let extension = expand('%:e')
-if extension == "rs"
-	" Primitives
-	exec "highlight rustBoolean guifg=" . s:const
-	exec "highlight rustFloat guifg=" . s:const
-	exec "highlight rustString guifg=" . s:str
-	exec "highlight rustContinuaion guifg=" . s:str
-	exec "highlight rustConstant guifg=" . s:const
-	exec "highlight rustDecNumber guifg=" . s:const
-	exec "highlight rustOctNumber guifg=" . s:const
-	exec "highlight rustHexNumber guifg=" . s:const
-	exec "highlight rustBinNumber guifg=" . s:const
+" Primitives
+exec "highlight rustBoolean guifg=" . s:const
+exec "highlight rustFloat guifg=" . s:const
+exec "highlight rustString guifg=" . s:str
+exec "highlight rustContinuaion guifg=" . s:str
+exec "highlight rustConstant guifg=" . s:const
+exec "highlight rustDecNumber guifg=" . s:const
+exec "highlight rustOctNumber guifg=" . s:const
+exec "highlight rustHexNumber guifg=" . s:const
+exec "highlight rustBinNumber guifg=" . s:const
 
-	" Types
-	exec "highlight rustEnum guifg=" . s:type
-	exec "highlight rustEnumVariant guifg=" . s:type
-	exec "highlight rustStorage guifg=" . s:keyword
-	exec "highlight rustStructure guifg=" . s:keyword
-	exec "highlight rustSelf guifg=" . s:keyword
-	exec "highlight rustSigil guifg=" . s:keyword
-	exec "highlight rustTrait gui=italic guifg=" . s:type
-	exec "highlight rustType guifg=" . s:type
+" Types
+exec "highlight rustEnum guifg=" . s:type
+exec "highlight rustEnumVariant guifg=" . s:type
+exec "highlight rustStorage guifg=" . s:keyword
+exec "highlight rustStructure guifg=" . s:keyword
+exec "highlight rustSelf guifg=" . s:keyword
+exec "highlight rustSigil guifg=" . s:keyword
+exec "highlight rustTrait gui=italic guifg=" . s:type
+exec "highlight rustType guifg=" . s:type
 
-	" Keywords
-	exec "highlight rustFuncName guifg=" . s:func
-	exec "highlight rustFuncCall guifg=" . s:func
-	exec "highlight rustIdentifier guifg=" . s:var
-	exec "highlight rustKeyword guifg=" . s:keyword
-	exec "highlight rustLifetime guifg=" . s:fg
-	exec "highlight rustMacro guifg=" . s:keyword
-	exec "highlight rustAssert guifg=" . s:keyword
-	exec "highlight rustPanic guifg=" . s:keyword
-	exec "highlight rustConditional guifg=" . s:keyword
-	exec "highlight rustRepeat guifg=" . s:keyword
-	exec "highlight rustArrowCharacter guifg=" . s:keyword
-	exec "highlight rustOperator guifg=" . s:keyword
-	exec "highlight rustUnsafeKeyword guifg=" . s:keyword
-	exec "highlight rustModPathSep guifg=" . s:keyword
-	exec "highlight rustLabel guifg=" . s:const
+" Keywords
+exec "highlight rustFuncName guifg=" . s:func
+exec "highlight rustFuncCall guifg=" . s:func
+exec "highlight rustIdentifier guifg=" . s:var
+exec "highlight rustKeyword guifg=" . s:keyword
+exec "highlight rustLifetime guifg=" . s:fg
+exec "highlight rustMacro guifg=" . s:keyword
+exec "highlight rustAssert guifg=" . s:keyword
+exec "highlight rustPanic guifg=" . s:keyword
+exec "highlight rustConditional guifg=" . s:keyword
+exec "highlight rustRepeat guifg=" . s:keyword
+exec "highlight rustArrowCharacter guifg=" . s:keyword
+exec "highlight rustOperator guifg=" . s:keyword
+exec "highlight rustUnsafeKeyword guifg=" . s:keyword
+exec "highlight rustModPathSep guifg=" . s:keyword
+exec "highlight rustLabel guifg=" . s:const
 
-	" Above the file
-	exec "highlight rustDerive guifg=" . s:const
-	exec "highlight rustMacroVariable guifg=" . s:fg
-	exec "highlight rustModPath guifg=" . s:type
-	exec "highlight rustAssert guifg=" . s:fg
-	exec "highlight rustAttribute guifg=" . s:const
+" Above the file
+exec "highlight rustDerive guifg=" . s:const
+exec "highlight rustMacroVariable guifg=" . s:fg
+exec "highlight rustModPath guifg=" . s:type
+exec "highlight rustAssert guifg=" . s:fg
+exec "highlight rustAttribute guifg=" . s:const
 
-	" Comment
-	exec "highlight rustCommentBlock guifg=" . s:comment
-	exec "highlight rustCommentLine guifg=" . s:comment
-	exec "highlight rustTodo guifg=" . s:warning
-else
-	exe 'hi Boolean guifg='s:const  
-	exe 'hi Character guifg='s:const  
-	exe 'hi Conditional guifg='s:keyword  
-	exe 'hi Constant guifg='s:const  
-	exe 'hi Define guifg='s:keyword  
-	exe 'hi DiffAdd guifg=#fafafa guibg=#123d0f gui=bold'
-	exe 'hi DiffDelete guibg='s:bg2  
-	exe 'hi DiffChange  guibg=#151b3c guifg=#fafafa'
-	exe 'hi DiffText guifg=#ffffff guibg=#ff0000 gui=bold'
-	exe 'hi ErrorMsg guifg='s:warning' guibg='s:bg2' gui=bold'
-	exe 'hi WarningMsg guifg='s:fg' guibg='s:warning2 
-	exe 'hi Float guifg='s:const  
-	exe 'hi Function guifg='s:func  
-	exe 'hi Identifier guifg='s:type'  gui=italic'
-	exe 'hi Keyword guifg='s:keyword'  gui=bold'
-	exe 'hi Label guifg='s:var
-	exe 'hi Number guifg='s:const  
-	exe 'hi Operater guifg='s:keyword  
-	exe 'hi PreProc guifg='s:keyword  
-	exe 'hi Special guifg='s:fg  
-	exe 'hi SpecialKey guifg='s:fg2' guibg='s:bg2 
-	exe 'hi Statement guifg='s:keyword  
-	exe 'hi StorageClass guifg='s:type'  gui=italic'
-	exe 'hi Tag guifg='s:keyword  
-	exe 'hi Title guifg='s:fg'  gui=bold'
-	exe 'hi Todo guifg='s:warning' guibg='s:bg' gui=bold'
-	exe 'hi Type guifg='s:type 
-	exe 'hi Underlined gui=underline'
-endif
+" Comment
+exec "highlight rustCommentBlock guifg=" . s:comment
+exec "highlight rustCommentLine guifg=" . s:comment
+exec "highlight rustTodo guifg=" . s:warning
 
-
+" Non-rust
+exe 'hi Boolean guifg='s:const  
+exe 'hi Character guifg='s:const  
+exe 'hi Conditional guifg='s:keyword  
+exe 'hi Constant guifg='s:const  
+exe 'hi Define guifg='s:keyword  
+exe 'hi DiffAdd guifg=#fafafa guibg=#123d0f gui=bold'
+exe 'hi DiffDelete guibg='s:bg2  
+exe 'hi DiffChange  guibg=#151b3c guifg=#fafafa'
+exe 'hi DiffText guifg=#ffffff guibg=#ff0000 gui=bold'
+exe 'hi ErrorMsg guifg='s:warning' guibg='s:bg2' gui=bold'
+exe 'hi WarningMsg guifg='s:fg' guibg='s:warning2 
+exe 'hi Float guifg='s:const  
+exe 'hi Function guifg='s:func  
+exe 'hi Identifier guifg='s:type'  gui=italic'
+exe 'hi Keyword guifg='s:keyword'  gui=bold'
+exe 'hi Label guifg='s:var
+exe 'hi Number guifg='s:const  
+exe 'hi Operater guifg='s:keyword  
+exe 'hi PreProc guifg='s:keyword  
+exe 'hi Special guifg='s:fg  
+exe 'hi SpecialKey guifg='s:fg2' guibg='s:bg2 
+exe 'hi Statement guifg='s:keyword  
+exe 'hi StorageClass guifg='s:type'  gui=italic'
+exe 'hi Tag guifg='s:keyword  
+exe 'hi Title guifg='s:fg'  gui=bold'
+exe 'hi Todo guifg='s:warning' guibg='s:bg' gui=bold'
+exe 'hi Type guifg='s:type 
+exe 'hi Underlined gui=underline'
