@@ -88,6 +88,7 @@ if extension == "rs"
 	exec "highlight rustKeyword guifg=" . s:keyword
 	exec "highlight rustLifetime guifg=" . s:fg
 	exec "highlight rustMacro guifg=" . s:keyword
+	exec "highlight rustAssert guifg=" . s:keyword
 	exec "highlight rustPanic guifg=" . s:keyword
 	exec "highlight rustConditional guifg=" . s:keyword
 	exec "highlight rustRepeat guifg=" . s:keyword
