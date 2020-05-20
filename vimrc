@@ -21,6 +21,8 @@ noremap <silent> ^ g^
 noremap <silent> $ g$
 noremap <silent> <M-j> <C-e>j
 noremap <silent> <M-k> <C-y>k
+noremap <silent> <M-h> ^
+noremap <silent> <M-l> $
 noremap <silent> <M-s> :wa<CR>
 imap <silent> <C-s> <esc>:wa<CR>
 noremap <silent> <M-c> "*y
@@ -50,8 +52,8 @@ nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
 nnoremap <silent> <M-q> :bd!<CR>
 nmap <silent> <M-S-q> :w<bar>%bd<bar>e#<bar>bd#<CR>
-nmap <silent> <M-l> :bn<CR> 
-nmap <silent> <M-h> :bp<CR> 
+nmap <silent> <M-S-l> :bn<CR> 
+nmap <silent> <M-S-h> :bp<CR> 
 vmap <silent> <M-l> <esc>:bn<CR> 
 vmap <silent> <M-h> <esc>:bp<CR> 
 imap <silent> <M-l> <esc>:bn<CR> 
