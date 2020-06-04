@@ -49,10 +49,15 @@ exe 'hi IncSearch guifg='s:fg' guibg='s:keyword
 exe 'hi Directory guifg='s:const  
 exe 'hi Folded guifg='s:fg4' guibg='s:bg
 
-" Requires BufTabLine
-exe 'hi BufTabLineCurrent guifg='s:fg4' guibg='s:bg
-exe 'hi BufTabLineHidden guifg='s:bg4' guibg='s:bg
-exe 'hi BufTabLineFill guifg='s:fg' guibg='s:bg
+" BufTabLine
+" exe 'hi BufTabLineCurrent guifg='s:fg4' guibg='s:bg
+" exe 'hi BufTabLineHidden guifg='s:bg4' guibg='s:bg
+" exe 'hi BufTabLineFill guifg='s:fg' guibg='s:bg
+
+" Vem-tabline
+exe 'hi TablineSel guifg='s:fg4' guibg='s:bg
+exe 'hi Tabline guifg='s:fg4' guibg='s:bg
+exe 'hi TablineFill guifg='s:bg' guibg='s:fg
 
 exe 'hi Comment guifg='s:comment  
 exe 'hi NonText guifg='s:bg4' guibg='s:bg2 
