@@ -14,10 +14,9 @@ DOSKEY cr=cls $T cargo run
 DOSKEY ct=cls $T cargo test
 
 :: Navigation (for home pc)
-DOSKEY cdhell=cd %HOMEPATH%\Documents\hell
-DOSKEY cddaily=cd %HOMEPATH%\work\daily
-DOSKEY cdwings=cd %HOMEPATH%\work\wings-game
-DOSKEY cdvim="cd %HOMEPATH%\vimfiles
+DOSKEY cdhell=cd %HOMEPATH%\code\hell
+DOSKEY cddaily=cd %HOMEPATH%\code\work\daily
+DOSKEY cdvim=cd %HOMEPATH%\vimfiles
 
 :: git
 DOSKEY gs=git status
