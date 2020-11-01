@@ -30,3 +30,7 @@ DOSKEY gars=git add *.rs
 DOSKEY gc=git commit $*
 DOSKEY gp=git push
 DOSKEY gg=git grep -ni $*
+
+:: misc
+DOSKEY killspotify=taskkill /f /IM spotify.exe
+DOSKEY p=ping 4.2.2.1 -t
