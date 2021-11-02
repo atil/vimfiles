@@ -1,4 +1,4 @@
-"""""""""""
+""""""""""
 " Editing "
 """""""""""
 
@@ -67,7 +67,7 @@ noremap <silent> <M-l> $
 
 " better save shortcut
 noremap <silent> <M-s> :wa<CR>
-imap <silent> <C-s> <esc>:wa<CR>
+imap <silent> <M-s> <esc>:wa<CR>
 
 " copyto/pastefrom system clipboard
 noremap <silent> <M-c> "*y
@@ -98,6 +98,8 @@ syntax on
 " tell what sort of thing is under the cursor
 nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+nnoremap <M-S-r> :%!astyle --style=google<CR>
+
 
 """""""""""
 " Buffers "
@@ -106,12 +108,6 @@ nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1)
 " wildmenu is da best
 set wildmenu
 set wildmode=longest:full,full " Dunno what this does
-
-" better hsplit position
-set splitbelow 
-
-" better vsplit position
-set splitright 
 
 " save when switching the buffers
 set autowriteall 
@@ -130,8 +126,8 @@ nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
 nmap <silent> <leader>egv :e ~/AppData/Local/nvim/ginit.vim<cr>
 nmap <silent> <leader>sgv :w<bar>so ~/AppData/Local/nvim/ginit.vim<cr>
 
-" better close-tab
-nnoremap <silent> <M-q> :bd!<CR>
+" better close-tab " done via bufkill
+" nnoremap <silent> <M-q> :bd!<CR>
 
 " close all tabs but this (reset the cursor)
 nmap <silent> <M-S-q> :w<bar>%bd<bar>e#<bar>bd#<CR>
@@ -143,7 +139,19 @@ vmap <silent> <M-S-k> <esc>:bn<CR>
 vmap <silent> <M-S-j> <esc>:bp<CR> 
 imap <silent> <M-S-k> <esc>:bn<CR> 
 imap <silent> <M-S-j> <esc>:bp<CR> 
-imap <silent> <C-Tab> <esc>:bn<CR>
+
+""""""""""
+" Splits "
+""""""""""
+" better hsplit position
+set splitbelow 
+
+" better vsplit position
+set splitright 
+
+" easier split switching
+nmap <silent> <M-S-h> <C-w><C-h>
+nmap <silent> <M-S-l> <C-w><C-l>
 
 " Prevent typos
 if !exists(':W') " Why does it try to add twice? Happens with nvim
@@ -175,6 +183,9 @@ endif
 if !exists(':Cdhell')
     command Cdhell cd ~\code\hell
 endif
+if !exists(':Cdhellc')
+    command Cdhellc cd ~\code\hellc
+endif
 if !exists(':Cdzs')
     command Cdzs cd ~\code\gzdoom_build\Debug\mod_test
 endif
@@ -194,14 +205,15 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/zenburn'
 Plug 'arcticicestudio/nord-vim'
-Plug 'marrub--/vim-zscript'
+Plug 'qpkorr/vim-bufkill'
+Plug 'preservim/nerdtree'
 call plug#end()
 colorscheme gruvbox
 if !exists(':Light')
     command Light colorscheme gruvbox|set background=light|syntax on
 endif
 if !exists(':Dark')
-    command Dark colorscheme hell|set background=dark|syntax on
+    command Dark colorscheme gruvbox|set background=dark|syntax on
 endif
 
 " Rust
@@ -215,6 +227,12 @@ nmap <C-P> <Plug>(easymotion-overwin-w)
 " CtrlP
 let g:ctrlp_map = '<c-t>'
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|target\|log\|tmp$',
+\ 'dir':  '\.git$\|target\|log\|tmp\|bin$',
 \ 'file': '\.so$\|\.dat$|\.DS_Store$'
 \ }
+
+" bufkill
+nmap <silent> <M-q> :BD<CR>
+
+" NERDTree
+nnoremap <silent> <M-;> :NERDTreeToggle<CR>
