@@ -1,4 +1,4 @@
-""""""""""
+"""""""""
 " Editing "
 """""""""""
 
@@ -177,62 +177,28 @@ endif
 """"""""""""""""""""
 " Project specific "
 """"""""""""""""""""
-if !exists(':Cddaily') 
-    command Cddaily cd ~\code\work\daily
-endif
 if !exists(':Cdhell')
     command Cdhell cd ~\code\hell
 endif
-if !exists(':Cdhellc')
-    command Cdhellc cd ~\code\hellc
-endif
-if !exists(':Cdzs')
-    command Cdzs cd ~\code\gzdoom_build\Debug\mod_test
-endif
-exec "Cddaily"
 
 """""""""""
 " Plugins "
 """""""""""
 
 call plug#begin('~/vimfiles/plugged')
-Plug 'rust-lang/rust.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-commentary'
-Plug 'kien/ctrlp.vim'
 Plug 'ap/vim-buftabline'
 Plug 'tikhomirov/vim-glsl'
-Plug 'morhetz/gruvbox'
 Plug 'vim-scripts/zenburn'
-Plug 'arcticicestudio/nord-vim'
 Plug 'qpkorr/vim-bufkill'
-Plug 'preservim/nerdtree'
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
-colorscheme gruvbox
-if !exists(':Light')
-    command Light colorscheme gruvbox|set background=light|syntax on
-endif
-if !exists(':Dark')
-    command Dark colorscheme gruvbox|set background=dark|syntax on
-endif
-
-" Rust
-let g:rustfmt_autosave = 1
+colorscheme zerg
 
 " Easymotion
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 nmap <C-P> <Plug>(easymotion-overwin-w)
  
-" CtrlP
-let g:ctrlp_map = '<c-t>'
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|target\|log\|tmp\|bin$',
-\ 'file': '\.so$\|\.dat$|\.DS_Store$'
-\ }
-
 " bufkill
 nmap <silent> <M-q> :BD<CR>
-
-" NERDTree
-nnoremap <silent> <M-;> :NERDTreeToggle<CR>
