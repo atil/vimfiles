@@ -5,9 +5,6 @@
 " this is the best leader key
 let mapleader="\<Space>"
 
-" yeah
-syntax on
-
 " tabstop is 4 chars wide
 set ts=4
 
@@ -98,9 +95,6 @@ syntax on
 " tell what sort of thing is under the cursor
 nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-nnoremap <M-S-r> :%!astyle --style=google<CR>
-
-
 """""""""""
 " Buffers "
 """""""""""
@@ -133,12 +127,12 @@ nmap <silent> <leader>sgv :w<bar>so ~/AppData/Local/nvim/ginit.vim<cr>
 nmap <silent> <M-S-q> :w<bar>%bd<bar>e#<bar>bd#<CR>
 
 " better tab switching
-nmap <silent> <M-S-k> :bn<CR> 
-nmap <silent> <M-S-j> :bp<CR> 
-vmap <silent> <M-S-k> <esc>:bn<CR> 
-vmap <silent> <M-S-j> <esc>:bp<CR> 
-imap <silent> <M-S-k> <esc>:bn<CR> 
-imap <silent> <M-S-j> <esc>:bp<CR> 
+nmap <silent> <M-S-k> :bn<CR>
+nmap <silent> <M-S-j> :bp<CR>
+vmap <silent> <M-S-k> <esc>:bn<CR>
+vmap <silent> <M-S-j> <esc>:bp<CR>
+imap <silent> <M-S-k> <esc>:bn<CR>
+imap <silent> <M-S-j> <esc>:bp<CR>
 
 """"""""""
 " Splits "
@@ -177,8 +171,8 @@ endif
 """"""""""""""""""""
 " Project specific "
 """"""""""""""""""""
-if !exists(':Cdhell')
-    command Cdhell cd ~\code\hell
+if !exists(':Cdtorr')
+    command Cdtorr cd ~\code\torrengine
 endif
 
 """""""""""
@@ -189,10 +183,14 @@ call plug#begin('~/vimfiles/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'ap/vim-buftabline'
 Plug 'tikhomirov/vim-glsl'
-Plug 'vim-scripts/zenburn'
 Plug 'qpkorr/vim-bufkill'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'rhysd/vim-clang-format'
+Plug 'tpope/vim-commentary'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'uplus/vim-clang-rename'
 call plug#end()
+
 colorscheme zerg
 
 " Easymotion
@@ -202,3 +200,20 @@ nmap <C-P> <Plug>(easymotion-overwin-w)
  
 " bufkill
 nmap <silent> <M-q> :BD<CR>
+
+" Clang format
+let g:clang_format#command = 'clang-format'
+autocmd FileType c ClangFormatAutoEnable
+let g:clang_format#detect_style_file = 1
+let g:clang_format#code_style="microsoft"
+let g:clang_format#sort_includes="false"
+let g:clang_format#style_options = {
+            \ "SortIncludes" : "false"}
+
+" Clang rename
+nmap <leader>rr :ClangRenameCurrent<CR>
+
+" Commentary
+nmap <leader>cc <Plug>CommentaryLine
+nmap <leader>c <Plug>Commentary
+vmap <leader>c <Plug>Commentary
