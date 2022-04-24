@@ -199,15 +199,17 @@ let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
 nmap <C-P> <Plug>(easymotion-overwin-w)
  
 " bufkill
-nmap <silent> <M-q> :BD<CR>
+nmap <silent> <M-q> :BD!<CR>
 
 " Clang format
 let g:clang_format#command = 'clang-format'
 autocmd FileType c ClangFormatAutoEnable
+autocmd FileType cpp ClangFormatAutoEnable
 let g:clang_format#detect_style_file = 1
 let g:clang_format#code_style="microsoft"
 let g:clang_format#sort_includes="false"
 let g:clang_format#style_options = {
+            \ "ColumnLimit" : 115, 
             \ "SortIncludes" : "false"}
 
 " Clang rename
@@ -217,3 +219,6 @@ nmap <leader>rr :ClangRenameCurrent<CR>
 nmap <leader>cc <Plug>CommentaryLine
 nmap <leader>c <Plug>Commentary
 vmap <leader>c <Plug>Commentary
+autocmd FileType c setlocal commentstring=//\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType h setlocal commentstring=//\ %s
