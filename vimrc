@@ -188,7 +188,7 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-commentary'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'uplus/vim-clang-rename'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 colorscheme zerg
@@ -210,6 +210,8 @@ let g:clang_format#code_style="microsoft"
 let g:clang_format#sort_includes="false"
 let g:clang_format#style_options = {
             \ "ColumnLimit" : 115, 
+            \ "BreakBeforeBraces" : "Attach", 
+            \ "AlwaysBreakTemplateDeclarations" : "Yes",
             \ "SortIncludes" : "false"}
 
 " Clang rename
@@ -222,3 +224,14 @@ vmap <leader>c <Plug>Commentary
 autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType h setlocal commentstring=//\ %s
+
+"CtrlP
+let g:ctrlp_map = '<c-t>'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)|bin|obj$',
+  \ 'file': '\v\.(exe|so|dll|pdb|ilk)$',
+  \ }
+"""
+
+"""
+
