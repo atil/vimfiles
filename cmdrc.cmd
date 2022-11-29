@@ -7,11 +7,16 @@ DOSKEY wlanc=netsh wlan connect ssid=ng2k name=ng2k
 DOSKEY wland=netsh wlan disconnect
 DOSKEY ls=dir $*
 DOSKEY cdh=cd %HOMEPATH%
+DOSKEY b=build.bat $*
 
 :: Cargo
 DOSKEY cb=cls $T cargo build
 DOSKEY cr=cls $T cargo run
 DOSKEY ct=cls $T cargo test
+
+:: Odin
+DOSKEY ob=cls $T odin build .
+DOSKEY or=cls $T odin run .
 
 :: Navigation (for home pc)
 DOSKEY cdhell=cd %HOMEPATH%\code\hell

@@ -1,4 +1,4 @@
-"""""""""
+"""""""""""
 " Editing "
 """""""""""
 
@@ -59,8 +59,8 @@ noremap <silent> <M-j> <C-e>j
 noremap <silent> <M-k> <C-y>k
 
 " be more on the home row
-noremap <silent> <M-h> ^
-noremap <silent> <M-l> $
+noremap <silent> <M-h> g^
+noremap <silent> <M-l> g$
 
 " better save shortcut
 noremap <silent> <M-s> :wa<CR>
@@ -120,9 +120,6 @@ nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
 nmap <silent> <leader>egv :e ~/AppData/Local/nvim/ginit.vim<cr>
 nmap <silent> <leader>sgv :w<bar>so ~/AppData/Local/nvim/ginit.vim<cr>
 
-" better close-tab " done via bufkill
-" nnoremap <silent> <M-q> :bd!<CR>
-
 " close all tabs but this (reset the cursor)
 nmap <silent> <M-S-q> :w<bar>%bd<bar>e#<bar>bd#<CR>
 
@@ -137,6 +134,7 @@ imap <silent> <M-S-j> <esc>:bp<CR>
 """"""""""
 " Splits "
 """"""""""
+
 " better hsplit position
 set splitbelow 
 
@@ -168,13 +166,6 @@ GuiFont Consolas:h16
 set guicursor +=a:blinkon0 " Solid cursor at all time
 endif
 
-""""""""""""""""""""
-" Project specific "
-""""""""""""""""""""
-if !exists(':Cdtorr')
-    command Cdtorr cd ~\code\torrengine
-endif
-
 """""""""""
 " Plugins "
 """""""""""
@@ -184,14 +175,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ap/vim-buftabline'
 Plug 'tikhomirov/vim-glsl'
 Plug 'qpkorr/vim-bufkill'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-commentary'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-obsession'
 call plug#end()
-
-colorscheme zerg
 
 " Easymotion
 let g:EasyMotion_do_mapping = 0
@@ -200,22 +187,6 @@ nmap <C-P> <Plug>(easymotion-overwin-w)
  
 " bufkill
 nmap <silent> <M-q> :BD!<CR>
-
-" Clang format
-let g:clang_format#command = 'clang-format'
-autocmd FileType c ClangFormatAutoEnable
-autocmd FileType cpp ClangFormatAutoEnable
-let g:clang_format#detect_style_file = 1
-let g:clang_format#code_style="microsoft"
-let g:clang_format#sort_includes="false"
-let g:clang_format#style_options = {
-            \ "ColumnLimit" : 115, 
-            \ "BreakBeforeBraces" : "Attach", 
-            \ "AlwaysBreakTemplateDeclarations" : "Yes",
-            \ "SortIncludes" : "false"}
-
-" Clang rename
-nmap <leader>rr :ClangRenameCurrent<CR>
 
 " Commentary
 nmap <leader>cc <Plug>CommentaryLine
@@ -231,7 +202,36 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)|bin|obj$',
   \ 'file': '\v\.(exe|so|dll|pdb|ilk)$',
   \ }
-"""
 
-"""
+""""""""""""""""""""
+" Machine specific "
+""""""""""""""""""""
+
+if !exists(':Cdtorr')
+    command Cdtorr cd ~\code\torrengine
+endif
+silent! colorscheme zerg
+
+" Go into Notepad++ mode and restore the session
+cd ~/temp
+if filereadable("Session.vim")
+    source Session.vim
+endif
+
+"""""""""""""
+" ginit.vim "
+"""""""""""""
+
+"let s:fontsize = 11
+"function! AdjustFontSize(amount)
+"  let s:fontsize = s:fontsize+a:amount
+"  :execute "GuiFont! Consolas:h" . s:fontsize
+"endfunction
+"
+"noremap <C-=> :call AdjustFontSize(1)<CR>
+"noremap <C--> :call AdjustFontSize(-1)<CR>
+"
+"GuiTabline 0
+"GuiFont! Cascadia\ Mono:h10
+"" GuiFont! Consolas:h11
 
