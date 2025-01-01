@@ -173,11 +173,9 @@ endif
 call plug#begin('~/vimfiles/plugged')
 Plug 'easymotion/vim-easymotion'
 Plug 'ap/vim-buftabline'
-Plug 'tikhomirov/vim-glsl'
 Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-commentary'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-obsession'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 " Easymotion
@@ -196,33 +194,14 @@ autocmd FileType c setlocal commentstring=//\ %s
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType h setlocal commentstring=//\ %s
 
-"CtrlP
-let g:ctrlp_map = '<c-t>'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)|bin|obj$',
-  \ 'file': '\v\.(exe|so|dll|pdb|ilk)$',
-  \ }
-
-""""""""""""""""""""
-" Machine specific "
-""""""""""""""""""""
-
-if !exists(':Cdtorr')
-    command Cdtorr cd ~\code\torrengine
-endif
-silent! colorscheme zerg
-
-" Go into Notepad++ mode and restore the session
-cd ~/temp
-if filereadable("Session.vim")
-    source Session.vim
-endif
+silent! colorscheme nord
 
 """""""""""""
 " ginit.vim "
 """""""""""""
+" location: %LOCALAPPDATA%\nvim
 
-"let s:fontsize = 11
+"let s:fontsize = 13
 "function! AdjustFontSize(amount)
 "  let s:fontsize = s:fontsize+a:amount
 "  :execute "GuiFont! Consolas:h" . s:fontsize
@@ -232,6 +211,4 @@ endif
 "noremap <C--> :call AdjustFontSize(-1)<CR>
 "
 "GuiTabline 0
-"GuiFont! Cascadia\ Mono:h10
-"" GuiFont! Consolas:h11
-
+"execute "GuiFont! Cascadia\ Mono:h" . s:fontsize
