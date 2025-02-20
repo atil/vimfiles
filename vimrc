@@ -86,6 +86,9 @@ set belloff=all
 " disable status line 
 set laststatus=1
 
+" get rid of the numbers on bottom-right
+set noruler
+
 " replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
