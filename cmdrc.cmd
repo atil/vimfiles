@@ -9,3 +9,6 @@ DOSKEY nuke=taskkill /F /IM $*
 DOSKEY home=cd %HOMEPATH%
 DOSKEY cdvim=cd %HOMEPATH%\vimfiles
 DOSKEY p=ping 4.2.2.1 -t
+
+DOSKEY rgstr=rg -FS $*
+DOSKEY rgfiles=rg --files $B rg -FS $*

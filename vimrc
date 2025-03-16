@@ -1,3 +1,6 @@
+" override the machine's language
+language en_US
+
 """""""""""
 " Editing "
 """""""""""
@@ -26,10 +29,10 @@ set hlsearch
 " esc removes the search highlight
 nnoremap <silent> <esc> :noh<return><esc>
 
-" search is case insensitive
+" case-insensitive search
+" we need this for smartcase to work
+" https://stackoverflow.com/questions/2287440/#comment12651093_2288438
 set ignorecase
-
-" ... unless we use an uppercase letter
 set smartcase
 
 " set word wrap but what is this !
@@ -66,10 +69,6 @@ noremap <silent> <M-l> g$
 noremap <silent> <M-s> :wa<CR>
 imap <silent> <M-s> <esc>:wa<CR>
 
-" copyto/pastefrom system clipboard
-noremap <silent> <M-c> "*y
-noremap <silent> <M-v> "*p
-
 " disable those pesky backup/swap files
 set nobackup
 set noswapfile
@@ -95,9 +94,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 " see syntax
 syntax on
  
-" tell what sort of thing is under the cursor
-nnoremap <silent> <leader>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 """""""""""
 " Buffers "
 """""""""""
@@ -123,9 +119,6 @@ nmap <silent> <leader>sv :w<bar>so $MYVIMRC<cr>
 nmap <silent> <leader>egv :e ~/AppData/Local/nvim/ginit.vim<cr>
 nmap <silent> <leader>sgv :w<bar>so ~/AppData/Local/nvim/ginit.vim<cr>
 
-" close all tabs but this (reset the cursor)
-nmap <silent> <M-S-q> :w<bar>%bd<bar>e#<bar>bd#<CR>
-
 " better tab switching
 nmap <silent> <M-S-k> :bn<CR>
 nmap <silent> <M-S-j> :bp<CR>
@@ -144,29 +137,10 @@ set splitbelow
 " better vsplit position
 set splitright 
 
-" easier split switching
-nmap <silent> <M-S-h> <C-w><C-h>
-nmap <silent> <M-S-l> <C-w><C-l>
-
 " Prevent typos
 if !exists(':W') " Why does it try to add twice? Happens with nvim
     command W w 
     command Wa wa
-endif
-
-""""""""
-" Gvim "
-""""""""
-
-if has("gui_running")
-au GUIEnter * simalt ~x " Start fullscreen
-set guioptions -=m
-set guioptions -=T
-set guioptions -=r
-set guioptions -=L
-"set guifont =Consolas:h16
-GuiFont Consolas:h16
-set guicursor +=a:blinkon0 " Solid cursor at all time
 endif
 
 """""""""""
@@ -174,28 +148,13 @@ endif
 """""""""""
 
 call plug#begin('~/vimfiles/plugged')
-Plug 'easymotion/vim-easymotion'
 Plug 'ap/vim-buftabline'
 Plug 'qpkorr/vim-bufkill'
-Plug 'tpope/vim-commentary'
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
-" Easymotion
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyz'
-nmap <C-P> <Plug>(easymotion-overwin-w)
- 
 " bufkill
 nmap <silent> <M-q> :BD!<CR>
-
-" Commentary
-nmap <leader>cc <Plug>CommentaryLine
-nmap <leader>c <Plug>Commentary
-vmap <leader>c <Plug>Commentary
-autocmd FileType c setlocal commentstring=//\ %s
-autocmd FileType cpp setlocal commentstring=//\ %s
-autocmd FileType h setlocal commentstring=//\ %s
 
 silent! colorscheme nord
 
@@ -214,4 +173,4 @@ silent! colorscheme nord
 "noremap <C--> :call AdjustFontSize(-1)<CR>
 "
 "GuiTabline 0
-"execute "GuiFont! Cascadia\ Mono:h" . s:fontsize
+"execute "GuiFont! Consolas:h" . s:fontsize
