@@ -158,19 +158,20 @@ nmap <silent> <M-q> :BD!<CR>
 
 silent! colorscheme nord
 
+execute "cd ~"
+command Md set syntax=markdown
+
 """""""""""""
 " ginit.vim "
 """""""""""""
-" location: %LOCALAPPDATA%\nvim
-
-"let s:fontsize = 13
-"function! AdjustFontSize(amount)
-"  let s:fontsize = s:fontsize+a:amount
-"  :execute "GuiFont! Consolas:h" . s:fontsize
-"endfunction
-"
-"noremap <C-=> :call AdjustFontSize(1)<CR>
-"noremap <C--> :call AdjustFontSize(-1)<CR>
-"
-"GuiTabline 0
-"execute "GuiFont! Consolas:h" . s:fontsize
+" let s:fontsize = 13
+" function! AdjustFontSize(amount)
+"   let s:fontsize = s:fontsize+a:amount
+"   :execute "GuiFont! Consolas:h" . s:fontsize
+" endfunction
+" 
+" noremap <C-=> :call AdjustFontSize(1)<CR>
+" noremap <C--> :call AdjustFontSize(-1)<CR>
+" 
+" GuiTabline 0
+" execute "GuiFont! Consolas:h" . s:fontsize
