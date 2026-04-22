@@ -91,6 +91,9 @@ set noruler
 " replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
+" replace selected text interactive
+vnoremap <M-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " see syntax
 syntax on
  
@@ -151,14 +154,21 @@ call plug#begin('~/vimfiles/plugged')
 Plug 'ap/vim-buftabline'
 Plug 'qpkorr/vim-bufkill'
 Plug 'arcticicestudio/nord-vim'
+Plug 'preservim/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " bufkill
 nmap <silent> <M-q> :BD!<CR>
 
+" NERDTree
+nnoremap <silent> <C-;> :NERDTreeToggle<CR>
+
 silent! colorscheme nord
 
-execute "cd ~"
+if isdirectory(expand('~/NoThoughtLost'))
+    execute "cd ~/NoThoughtLost"
+endif 
 command Md set syntax=markdown
 
 """""""""""""
@@ -170,8 +180,17 @@ command Md set syntax=markdown
 "   :execute "GuiFont! Consolas:h" . s:fontsize
 " endfunction
 " 
+" function! ToggleFullScreen()
+"     if g:GuiWindowFullScreen
+"         call GuiWindowFullScreen(0)
+"     else
+"         call GuiWindowFullScreen(1)
+"     endif
+" endfunction
+" 
 " noremap <C-=> :call AdjustFontSize(1)<CR>
 " noremap <C--> :call AdjustFontSize(-1)<CR>
+" noremap <F11> :call ToggleFullScreen()<CR>
 " 
 " GuiTabline 0
 " execute "GuiFont! Consolas:h" . s:fontsize
