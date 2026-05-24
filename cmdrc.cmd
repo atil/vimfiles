@@ -13,3 +13,5 @@ DOSKEY gc=git commit -m $*
 
 DOSKEY rgstr=rg -FS $*
 DOSKEY rgfiles=rg --files $B rg -FS $*
+
+DOSKEY copyvimrc=copy /Y vimrc %LOCALAPPDATA%\nvim\init.vim
